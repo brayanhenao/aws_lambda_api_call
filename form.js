@@ -3,7 +3,8 @@ function f() {
         type: "GET",
         url: 'https://ob8ifavq7l.execute-api.us-west-2.amazonaws.com/prod/resource',
         data: {
-            text: document.getElementById('text').value
+            text: document.getElementById('text').value,
+            lang: document.getElementById('language').value
         },
         dataType: 'json',
         success: function (response) {
@@ -14,5 +15,36 @@ function f() {
 }
 
 function f2() {
-    window.location.href = "rickroll.html";
+    window.location.href = "foreign_visitor.html";
+}
+
+function f3() {
+
+    let file = document.getElementById("file").files[0];
+
+    let reader = new FileReader();
+
+    reader.onload = function (e) {
+        let text = e.target.result;
+
+        $.ajax({
+            type: "POST",
+            url: 'https://9gyivkula0.execute-api.us-west-2.amazonaws.com/prod2',
+            headers: {
+                'Access-Control-Allow-Origin': '*'
+            },
+            data: {
+                text: text,
+                lang: "en"
+            },
+            dataType: 'json',
+            success: function (response) {
+                if (response === "Error") {
+                    f2();
+                }
+            }
+        });
+        console.log(text);
+    };
+    reader.readAsText(file);
 }
