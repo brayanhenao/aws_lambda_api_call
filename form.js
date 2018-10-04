@@ -22,6 +22,10 @@ function f3() {
 
     let file = document.getElementById("file").files[0];
 
+    let language = document.getElementById("lang").value;
+
+    console.log(language);
+
     let reader = new FileReader();
 
     reader.onload = function (e) {
@@ -35,7 +39,7 @@ function f3() {
             },
             data: {
                 text: text,
-                lang: "en"
+                lang: language
             },
             dataType: 'json',
             success: function (response) {
