@@ -22,7 +22,7 @@ function f() {
                 if (response === "Error") {
                     f2();
                 } else {
-                    setTimeout(3000);
+                    setTimeout(6000);
                     window.location.href = "results.html";
                 }
             }
