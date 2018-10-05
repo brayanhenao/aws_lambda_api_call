@@ -1,0 +1,17 @@
+#tittle {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+#videodiv {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+body {
+    background-color: #3498db;
+}

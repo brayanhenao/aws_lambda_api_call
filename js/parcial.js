@@ -1,10 +1,9 @@
 function f() {
-
     let file = document.getElementById("file").files[0];
 
     let language = document.getElementById("lang").value;
 
-    console.log(language);
+    let filename = file.name;
 
     let reader = new FileReader();
 
@@ -15,14 +14,16 @@ function f() {
             url: 'https://hw2m72bc78.execute-api.us-west-2.amazonaws.com/prod',
             data: {
                 text: text,
-                lang: language
+                lang: language,
+                filename: filename
             },
             dataType: 'json',
             success(response) {
                 if (response === "Error") {
                     f2();
                 } else {
-                    console.log(response);
+                    setTimeout(3000);
+                    window.location.href = "results.html";
                 }
             }
         });

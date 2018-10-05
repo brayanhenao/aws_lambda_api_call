@@ -1,0 +1,16 @@
+#tittle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#resultslabel {
+    width: 1000px;
+    height: 500px;
+    resize: none;
+    text-align: justify-all;
+}
+
+body {
+    background-color: #3498db;
+}

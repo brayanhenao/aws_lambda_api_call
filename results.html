@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultados</title>
+    <link rel="stylesheet" href="css/results.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>document.write("<div id=\"tittle\">\n" +
+        "    <h1>Resultados</h1>\n" +
+        "</div>\n" +
+        "<div id=\"resultsdiv\">\n" +
+        "    <textarea id='resultslabel' disabled title=\"test\"></textarea>\n" +
+        "</div>");
+    console.log(document);
+    let label = document.getElementById("resultslabel");
+    $.ajax({
+        type: "GET",
+        url: 'https://s3-us-west-2.amazonaws.com/parcial-cloud-icesi-brabor/logs/log.txt',
+        success(response) {
+            let text = response.toString();
+            text = text.replace(/Ip /g, "->Ip ");
+            label.value = text;
+            console.log(text);
+        },
+        error(err) {
+            console.log(err);
+        }
+    });</script>
+</head>
+<body>
+
+</body>
+</html>
